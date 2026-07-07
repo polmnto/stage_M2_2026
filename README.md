@@ -3,11 +3,15 @@
 This pipeline aims at comparing two indexes of phylogenetic conflicts: the asymetry of discordant topologies (as in the D statistic) and the branch lengths/node height (as in QuIBL or Aphid).
 It can be divided into three main steps: 
 
-1) It will generate a species tree to calculate a "D-statistic like" measure using Astral quartet supports. This species tree will also be used with a generated distance matrix to get more realistic branch lengths values (that does not depend on mutation rate variation) using Erable (Binet et al., 2016). Thoses values are used to scale the input gene trees. Folder 'species_tree'.
+1) It will score a species tree with quartet supports to calculate a "D-statistic like" measure using Astral. Folder 'species_tree/quartet_support'.
+
+2) It will also rescale all the gene trees to get more realistic branch lengths values (that does not depend on mutation rate variation) using Erable (Binet et al., 2016). Thoses values are used to scale the input gene trees. Folder 'species_tree/scaled_gene_trees'.
 	
-2) It will determine the quartet support values of each topology for each node of the species tree for each gene tree. This allow to determine if each node is concordant, discordant for the first alternative topology or discordant for the second alternative topology. Folder 'node_discordance'.
+3) It will measure the height of each node of the species tree in every gene trees, resulting in a distribution of heights for each node of the species tree :
+
+	3.1) For each node of the species tree, it will determine if each gene tree is either concordant, discordant 1 or discordant 2 (the two possible discordant topologies). Folder 'node_discordance'.
 	
-3) It will perform a correspondence between each gene trees nodes and species tree nodes in order extract the height of each node of the species tree for each gene tree. This correspondence considers the concordance/discordance of the node (determined above) to take alternative topologies into account. Folder 'correspondence'.
+	3.2) It will perform a correspondence between each gene trees nodes and species tree nodes in order extract the height of each node of the species tree for each gene tree. This correspondence considers the concordance/discordance of the node (determined above) to take alternative topologies into account. Folder 'correspondence'.
 
 Thus, it provides the necessary material to calculate a height index that allow to detect gene flow using gene trees data. A example of a script in R which compute this statistic and compare it with the D stat by generating a figure (H ~ D) is also provided ('compute_H_index.R').
 
