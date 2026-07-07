@@ -18,6 +18,7 @@ Thus, it provides the necessary material to calculate a height index that allow 
 * Ete3 (https://etetoolkit.org/)
 * Astral.5.7.8 (https://github.com/smirarab/ASTRAL/tree/master)
 * Erable (http://www.atgc-montpellier.fr/erable/)
+* R (here version 4.6.0 used)
 
 ## Run the pipeline
 
@@ -34,6 +35,8 @@ $ ./main.sh -i {input gene tree file} -s {species tree} -a {path/to/astral}
 
 ## Outputs
 
+IMPORTANT : the "final_results.csv" table is what you want to look at at the end. It contains the H index, the Dstat, the concordance factor (q1) for all nodes considered. It also shows the number of short discordant gene tree (nb_D_nodes_INF) and the total number of discordant gene trees (nb_D_nodes). The "discordance_rate" column is just 1-q1 so like a "discordance factor".
+
 ASTRAL_speciestree.tre : the species tree inferred by Astral. Note that it is mostly relevant for the topology.
 
 ASTRAL_speciestree_NUMBERED.tre : the same tree but with numbered nodes. It might be useful for intepretation and can be visualised using Dendroscope for example.
@@ -42,7 +45,7 @@ gene_trees_SCALED.treefile : a file containing all the input gene trees but scal
 
 genetrees_quartet_support.csv : a table with the quartet support frequencies for each toplogy for each nodes of the species tree for each gene tree. In the example 0.8|0.1|0.1, the first number is q1 (the concordant topology and the second and third are q2 and q3 (quartet support frequencies for the alternative topologies).
 
-The three main outputs are the following .csv files :
+The three main outputs are the following .csv files (they are used to compute the final_results table) :
 
 - quartet_support_Dstat.csv : a table with quartet support for each node of the species tree and other measure corresponding to the Astral 'full annotation' when scoring a tree (https://github.com/smirarab/ASTRAL/blob/master/astral-tutorial.md#scoring-existing-trees). IMPORTANT : the last column is the D statistic equivalent calculated using the quartet support for alternative topologies.
 
