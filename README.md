@@ -35,7 +35,7 @@ $ ./main.sh -i {input gene tree file} -s {species tree} -a {path/to/astral}
 
 ## Outputs
 
-IMPORTANT : the "final_results.csv" table is what you want to look at at the end. It contains the H index, the Dstat, the concordance factor (q1) for all nodes considered. It also shows the number of short discordant gene tree (nb_D_nodes_INF) and the total number of discordant gene trees (nb_D_nodes). The "discordance_rate" column is just 1-q1 so like a "discordance factor".
+IMPORTANT : the "final_results.csv" table is what you want to look at at the end. It contains the H index, the Dstat, the concordance factor (q1) for all nodes considered. It also shows the number of short discordant gene tree (nb_D_nodes_INF) and the total number of discordant gene trees (nb_D_nodes). The "discordance_rate" column is just 1-q1 so like a "discordance factor". A final figure file is also created consisting in the Dstat plotted against the H index (asymetry index VS height index). The size of the points are related to the discordance rate. The straight line is the mean H index expected under the null hypothesis, the dashed line is the 5% threshold of significance and the dotted line is the 1% threshold. All those threshold were computed using 1000 simulations of datasets in absence of gene flow (i.e. the null hypothesis).
 
 ASTRAL_speciestree.tre : the species tree inferred by Astral. Note that it is mostly relevant for the topology.
 
