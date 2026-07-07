@@ -72,7 +72,10 @@ echo "Getting the height of each node"
 
 python correspondence/correspondence.py -t output/gene_trees_SCALED.treefile -s $argS -d output/discordance_dataframe.csv -o output/height_dataframe.csv
 
+#final results table
+echo "Creating a table with final results"
+
+Rscript compute_H_index.R -c output/discordance_dataframe.csv -l output/height_dataframe.csv -d output/quartet_support_Dstat.csv -o output/final_results.csv
 
 duration=$(( SECONDS - start ))
 echo "Total running time:" $duration "seconds"
-
